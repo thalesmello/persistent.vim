@@ -11,14 +11,14 @@ if &updatecount == 200
 endif
 
 function! s:enable_update()
-    
+    let &updatecount = s:updatecount
 endfunction
 
 function! s:disable_update()
     let s:updatecount = &updatecount
-    set updatecount = 0
+    set updatecount=0
 endfunction
 
-autocmd User MultipleCursorsPre call s:disable_update()
-autocmd User MultipleCursorsPost call s:enable_update()
+autocmd User MultipleCursorsPre call <SID>disable_update()
+autocmd User MultipleCursorsPost call <SID>enable_update()
 
