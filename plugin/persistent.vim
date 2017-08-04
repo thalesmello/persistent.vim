@@ -4,7 +4,11 @@ if has('persistent_undo')
     set undofile
 endif
 
-let s:updatecount = &updatecount
+let s:updatecount = 20
+
+if &updatecount == 200
+    let &updatecount = s:updatecount
+endif
 
 function! s:enable_update()
     let &updatecount = s:updatecount
