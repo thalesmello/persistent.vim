@@ -1,6 +1,9 @@
 if has('persistent_undo')
     set undolevels=5000
-    silent ! mkdir -p $HOME/.local/share/nvim/undo_files
+    if !isdirectory($HOME ."/.local/share/nvim/undo_files")
+        silent ! mkdir -p $HOME/.local/share/nvim/undo_files
+    endif
+
     set undodir=$HOME/.local/share/nvim/undo_files
     set undofile
 endif
